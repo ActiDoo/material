@@ -152,6 +152,7 @@ function ThemingProvider($mdColorPalette) {
     generateThemesOnDemand: function(onDemand) {
       generateOnDemand = onDemand;
     },
+    reload: generateAllThemes,
     $get: ThemingService,
     _LIGHT_DEFAULT_HUES: LIGHT_DEFAULT_HUES,
     _DARK_DEFAULT_HUES: DARK_DEFAULT_HUES,
@@ -339,8 +340,8 @@ function ThemingProvider($mdColorPalette) {
       function changeTheme(theme) {
         if (!theme) return;
         if (!registered(theme)) {
-          $log.warn('Attempted to use unregistered theme \'' + theme + '\'. ' +
-                    'Register it with $mdThemingProvider.theme().');
+          //$log.warn('Attempted to use unregistered theme \'' + theme + '\'. ' +
+                    //'Register it with $mdThemingProvider.theme().');
         }
         var oldTheme = el.data('$mdThemeName');
         if (oldTheme) el.removeClass('md-' + oldTheme +'-theme');
